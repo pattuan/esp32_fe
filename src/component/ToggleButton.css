@@ -1,0 +1,201 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa; /* Màu nền */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 80%; /* Độ rộng của container */
+  max-width: 1200px; /* Giới hạn độ rộng tối đa */
+  padding: 20px;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Tự điều chỉnh số cột */
+  gap: 20px; /* Khoảng cách giữa các grid-item */
+}
+
+.grid-item {
+  background-color: #ffffff;
+  border-radius: 15px; /* Đường viền cong */
+  padding: 20px; /* Khoảng cách bên trong grid-item */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease; /* Hiệu ứng chuyển động và bóng đổ */
+}
+
+.grid-item:hover {
+  transform: translateY(-8px); /* Hiệu ứng nâng grid-item lên */
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2); /* Tăng độ sáng của bóng đổ */
+}
+
+.room {
+  text-align: center;
+}
+
+h1 {
+  font-size: 28px; /* Kích thước chữ của h1 */
+  font-weight: 600;
+  margin-bottom: 20px; /* Khoảng cách dưới của h1 */
+  color: #333; /* Màu chữ */
+}
+
+h2 {
+  font-size: 18px; /* Kích thước chữ của h2 */
+  font-weight: 500;
+  margin-bottom: 10px; /* Khoảng cách dưới của h2 */
+  color: #6b6767; /* Màu chữ */
+}
+
+.control {
+  margin-bottom: 15px;
+}
+
+.device-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out, box-shadow 0.3s ease;
+  margin-bottom: 20px; /* Khoảng cách giữa các device-group */
+}
+
+.device {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.device .icon {
+  margin-bottom: 10px;
+}
+
+.device button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.button-on {
+  background-color: #4caf50;
+  color: white;
+}
+
+.button-off {
+  background-color: #f44336;
+  color: white;
+}
+
+.button-on:hover,
+.button-off:hover {
+  opacity: 0.8;
+}
+
+.sensor-data {
+  display: flex;
+  justify-content: space-around;
+  background-color: #e9f7fb; /* Màu nền */
+  border: 1px solid #b3d7f7; /* Viền */
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.temperature,
+.humidity {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+}
+
+.temperature {
+  border-right: 1px solid #b3d7f7; /* Viền phân cách */
+}
+
+.humidity {
+  border-left: 1px solid #b3d7f7; /* Viền phân cách */
+}
+
+.temperature p,
+.humidity p {
+  font-size: 24px; /* Kích thước chữ của p */
+  font-weight: 600;
+  margin-top: 5px; /* Khoảng cách trên của p */
+}
+
+.status {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.status p {
+  font-size: 18px; /* Kích thước chữ của p */
+  font-weight: 600;
+  margin-top: 10px; /* Khoảng cách trên của p */
+}
+
+.status svg {
+  margin-bottom: 5px;
+}
+
+/* Styles for X and O button */
+/* Styles for X and O button */
+.xo-button {
+  text-align: center;
+  margin: 10px 0; /* Khoảng cách 10px ở trên và dưới */
+}
+
+.xo-button button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 5px;
+  transition: all 0.3s ease;
+}
+
+.xo-button button:hover {
+  opacity: 0.7;
+}
+
+/* Styles for X and O icons */
+.xo-button button svg {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Styles for X and O labels */
+.xo-button button span {
+  font-size: 24px;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* Trên thiết bị nhỏ hơn 768px, chỉ hiển thị 1 cột */
+  }
+
+  .container {
+    width: 90%; /* Độ rộng của container trên thiết bị nhỏ hơn */
+  }
+}
