@@ -1,0 +1,94 @@
+/* camera.css */
+.container-camera {
+    display: flex;
+    flex-direction: column; /* Sắp xếp theo cột */
+    align-items: center; /* Căn giữa các phần tử theo chiều ngang */
+    padding: 20px;
+    gap: 20px; /* Khoảng cách giữa các phần tử */
+}
+
+.camera-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Căn giữa các phần tử trong phần camera */
+    gap: 20px; /* Khoảng cách giữa video và các nút */
+    width: 100%;
+    max-width: 800px; /* Đặt kích thước tối đa cho phần camera */
+}
+
+.camera-section video {
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    width: 100%; /* Đảm bảo video chiếm toàn bộ chiều rộng của phần tử chứa */
+    height: auto; /* Đảm bảo tỷ lệ khung hình của video được giữ nguyên */
+}
+
+.camera-buttons {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút */
+    margin-top: 10px;
+}
+
+button-camera {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Loại bỏ gạch chân nếu button-camera là link */
+    display: inline-block; /* Đảm bảo button-camera hoạt động tốt khi là link */
+}
+
+button-camera:hover {
+    background-color: #0056b3;
+}
+
+.photo-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 800px; /* Đặt kích thước tối đa cho phần hiển thị ảnh */
+}
+
+.photo-display img {
+    max-width: 100%;
+    max-height: 400px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+}
+
+.actions {
+    display: flex;
+    gap: 10px; /* Khoảng cách giữa các nút hành động */
+}
+
+.actions a {
+    text-decoration: none; /* Loại bỏ gạch chân của liên kết */
+}
+
+p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #28a745;
+}
+
+.video-controls {
+    width: 100%;
+    max-width: 800px; /* Đặt kích thước tối đa cho phần điều khiển video */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Khoảng cách giữa các phần tử trong video-controls */
+}
+
+.live-preview {
+    width: 100%;
+    max-width: 800px; /* Đặt kích thước tối đa cho live preview */
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Khoảng cách giữa video preview và các điều khiển khác */
+}

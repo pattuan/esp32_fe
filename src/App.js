@@ -3,8 +3,9 @@ import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AppDEMO from './component/ToggleButton';
 import Login from './login';
-import Form from './form';
-import Camera from './camera';
+import Register from './register';
+import Form from './form/form';
+import Camera from './camera/camera';
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
           <Route path="/AppDEMO" element={<AppDEMO />} />
           <Route path="/form" element={<Form />} />
           <Route path="/camera" element={<Camera />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
     </div>
   );

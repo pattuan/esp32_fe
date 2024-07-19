@@ -3,7 +3,7 @@ import Form from '@rjsf/core';
 import validator from '@rjsf/validator-ajv8';
 import * as Realm from "realm-web";
 import config from '../config';
-import "./index.css";
+import "./index_form.css";
 import Swal from 'sweetalert2'
 
 const app = new Realm.App({ id: `${config.API}` });
@@ -175,6 +175,30 @@ const App = () => {
 
   return (
     <div>
+      <nav>
+        <ul>
+          <li>
+            <button className="nav-button" onClick={() => window.location.href = "/esp32_fe/#/camera"}>
+              CAMERA
+            </button>
+          </li>
+          <li>
+            <button className="nav-button" onClick={() => window.location.href = "/esp32_fe/#/AppDEMO"}>
+              APP
+            </button>
+          </li>
+          <li>
+            <button className="nav-button" onClick={() => window.location.href = "/esp32_fe/#/"}>
+              LOGIN
+            </button>
+          </li>
+          <li>
+            <button className="nav-button" onClick={() => window.location.href = "/esp32_fe/#/register"}>
+              REGISTER
+            </button>
+          </li>
+        </ul>
+      </nav>
       <div className="form-container">
         <h2 style={{
           fontSize: '1.5rem',

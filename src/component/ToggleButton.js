@@ -7,6 +7,7 @@ import { WiThermometer, WiHumidity } from "react-icons/wi";
 
 const ROOM_1 = "room 1";
 const ROOM_2 = "room 2";
+const ROOM_3 = "room 3";
 
 const ToggleButton = () => {
   const [ledState, setLedState] = useState(false);
@@ -22,6 +23,8 @@ const ToggleButton = () => {
   const [ledState2, setLedState2] = useState(false);
   const [relay2State, setRelay2State] = useState(false);
   const [magnet2, setMagnet2] = useState(0);
+
+  const [magnet3, setMagnet3] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,6 +48,8 @@ const ToggleButton = () => {
           setLedState2(data[0][ROOM_2]?.led_state === 1);
           setRelay2State(data[0][ROOM_2]?.relay_state === 1);
           setMagnet2(data[0][ROOM_2]?.magnet_state === 1);
+
+          setMagnet3(data[0][ROOM_3]?.magnet_state === 1);
         }
 
         console.log("end interval");
@@ -59,7 +64,7 @@ const ToggleButton = () => {
   }, []);
   const handleToggle = async (room, newLedState) => {
     console.log("new led state", newLedState);
-  
+
     const jsonData = JSON.stringify({
       "room": {
         "button_state": buttonState ? 1 : 0,
@@ -71,9 +76,9 @@ const ToggleButton = () => {
       "updated_at": Date.now(),
       "platform": "web"
     });
-  
+
     console.log('Sending data:', jsonData);
-  
+
     try {
       const response = await fetch('https://ap-southeast-1.aws.data.mongodb-api.com/app/nfc-fe-syyvhfs/endpoint/device', {
         method: 'POST',
@@ -82,21 +87,21 @@ const ToggleButton = () => {
         },
         body: jsonData
       });
-  
+
       if (!response.ok) {
         throw new Error('Failed to update data');
       }
-  
+
       const result = await response.json();
       console.log('Update result:', result);
     } catch (error) {
       console.error('Error updating data:', error);
     }
   };
-  
+
   const handleToggleRelay = async (room, newRelayState) => {
     console.log("new relay state", newRelayState);
-  
+
     const jsonData = JSON.stringify({
       "room": {
         "button_state_relay": buttonRelay1State ? 1 : 0,
@@ -108,9 +113,9 @@ const ToggleButton = () => {
       "updated_at": Date.now(),
       "platform": "web"
     });
-  
+
     console.log('Sending data relay:', jsonData);
-  
+
     try {
       const response = await fetch('https://ap-southeast-1.aws.data.mongodb-api.com/app/nfc-fe-syyvhfs/endpoint/device', {
         method: 'POST',
@@ -119,17 +124,17 @@ const ToggleButton = () => {
         },
         body: jsonData
       });
-  
+
       if (!response.ok) {
         throw new Error('Failed to update data');
       }
-  
+
       const result = await response.json();
       console.log('Update result:', result);
     } catch (error) {
       console.error('Error updating data:', error);
     }
-  };  
+  };
 
   const handleToggleXO = async (room) => {
     const newXoState = !xoState;
@@ -170,6 +175,30 @@ const ToggleButton = () => {
 
   return (
     <div className="container">
+      <nav>
+        <ul>
+          <li>
+            <button className="nav-button" onClick={() => window.location.href = "/esp32_fe/#/form"}>
+              FORM
+            </button>
+          </li>
+          <li>
+            <button className="nav-button" onClick={() => window.location.href = "/esp32_fe/#/camera"}>
+              CAMERA
+            </button>
+          </li>
+          <li>
+            <button className="nav-button" onClick={() => window.location.href = "/esp32_fe/#/"}>
+              LOGIN
+            </button>
+          </li>
+          <li>
+            <button className="nav-button" onClick={() => window.location.href = "/esp32_fe/#/register"}>
+              REGISTER
+            </button>
+          </li>
+        </ul>
+      </nav>
       <div className="grid-container">
         {/* Grid Item 1 */}
         <div className="grid-item">
@@ -350,9 +379,9 @@ const ToggleButton = () => {
                 {/* {pirState ? <RiAlarmWarningFill size={50} color="red" /> : <RiAlarmWarningLine size={50} color="gray" />}
                 <h2>Cảnh báo vật thể</h2>
                 <p>{pirState ? 'CÓ TRỘM CHUYỂN ĐỘNG' : 'BÌNH THƯỜNG'}</p> */}
-                {magnet2 ? <RiAlarmWarningFill size={50} color="red" /> : <RiAlarmWarningLine size={50} color="gray" />}
+                {magnet3 ? <RiAlarmWarningFill size={50} color="red" /> : <RiAlarmWarningLine size={50} color="gray" />}
                 <h2>Cảnh báo cửa</h2>
-                <p>{magnet2 ? 'CÓ TRỘM MỞ CỬA' : 'BÌNH THƯỜNG'}</p>
+                <p>{magnet3 ? 'CÓ TRỘM MỞ CỬA' : 'BÌNH THƯỜNG'}</p>
               </div>
             </div>
           </div>

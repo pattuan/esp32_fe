@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import { useState } from 'react';
+import validator from '@rjsf/validator-ajv8';
 import config from '../config';
 import * as Realm from "realm-web";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; 
 import { Link } from "react-router-dom";
 
 const app = new Realm.App({ id: `${config.API}` });
 
+
 function App() {
     const [formData, setFormData] = useState({ email: '', password: '' });
     const navigate = useNavigate();
+
     const handleChange = (event) => {
         const { id, value } = event.target;
         setFormData({ ...formData, [id]: value });
@@ -18,15 +21,14 @@ function App() {
         event.preventDefault();
         const { email, password } = formData;
         try {
-            const credentials = Realm.Credentials.emailPassword(email, password);
-            await app.logIn(credentials);
-            console.log("Đăng nhập thành công");
-            navigate("/AppDEMO");
-            window.location.reload();
+            await app.emailPasswordAuth.registerUser({ email, password });
+            console.log("Đăng ký thành công");
+            navigate("/");  
         } catch (error) {
             console.log(error.error);
         }
     };
+
     return (
         <div style={{
             fontFamily: 'Arial, sans-serif',
@@ -49,7 +51,7 @@ function App() {
                     marginBottom: '20px',
                     fontSize: '28px',
                     color: '#333'
-                }}>Đăng Nhập</h2>
+                }}>Đăng Ký</h2>
                 <form onSubmit={handleSubmit}>
                     <div>
                         <input 
@@ -94,14 +96,15 @@ function App() {
                         fontSize: '18px',
                         color: 'white',
                         cursor: 'pointer'
-                    }}>Đăng Nhập</button>
+                    }}>Đăng Ký</button>
                 </form>
                 <p style={{ marginTop: '20px' }}>
-                    Chưa có tài khoản? <Link to="/register">Đăng Ký</Link>
+                    Bạn có tài khoản rồi? <Link to="/">Đăng Nhập</Link>
                 </p>
             </div>
         </div>
-    );   
+    );
+    
 }
 
 export default App;
