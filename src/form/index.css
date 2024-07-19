@@ -64,28 +64,6 @@
   margin-right: 0; /* Bỏ khoảng cách phải của form cuối cùng */
 }
 
-h2 {
-  /* font-size: 1.5rem; Kích thước chữ nhỏ hơn */
-  /* color: #007bff; Màu chữ xanh dương */
-  margin-bottom: 5px; /* Khoảng cách dưới */
-  padding: 10px 15px; /* Padding bên trong ít hơn */
-  /* border: 2px solid #007bff; Viền màu xanh dương */
-  /* border-radius: 10px; Bo góc tròn ít hơn */
-  /* background-color: #f0f8ff; Màu nền nhạt */
-  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); Đổ bóng nhẹ */
-  /* text-align: center; Căn giữa chữ */
-  /* text-transform: uppercase; Chuyển thành chữ hoa */
-  /* letter-spacing: 1px; Khoảng cách giữa các ký tự */
-  /* transition: all 0.3s ease; Hiệu ứng chuyển đổi mượt */
-  /* display: inline-block; Hiển thị dạng khối ngang */
-  /* width: auto; Chiều rộng tự động theo nội dung */
-}
-
-h2:hover {
-  /* background-color: #007bff; Đổi màu nền khi hover */
-  /* color: #fff; Đổi màu chữ khi hover */
-  /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); Đổ bóng mạnh hơn khi hover */
-}
 
 
 
