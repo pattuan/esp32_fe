@@ -1,0 +1,58 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.camera {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px; /* Khoảng cách giữa video và ảnh */
+}
+
+.camera video {
+    border: 2px solid #007bff;
+    border-radius: 10px;
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.photo-display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.photo-display img {
+    max-width: 100%;
+    max-height: 400px;
+    border: 2px solid #007bff;
+    border-radius: 10px;
+}
+
+.actions {
+    margin-top: 10px;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #28a745;
+}

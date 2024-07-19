@@ -26,47 +26,79 @@ function App() {
             console.log(error.error);
         }
     };
-
     return (
-        <div className="container mt-5">
-            <div className="row justify-content-center">
-                <div className="col-md-4">
-                    <div className="card shadow">
-                        <div className="card-body">
-                            <h2 className="fw-bold mb-4 text-uppercase text-center">Login</h2>
-                            <form onSubmit={handleSubmit}>
-                                <div className="mb-3">
-                                    <label htmlFor="email" className="form-label">Email address</label>
-                                    <input
-                                        type="email"
-                                        className="form-control"
-                                        id="email"
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="password" className="form-label">Password</label>
-                                    <input
-                                        type="password"
-                                        className="form-control"
-                                        id="password"
-                                        value={formData.password}
-                                        onChange={handleChange}
-                                        required
-                                    />
-                                </div>
-                                <button type="submit" className="btn btn-primary w-100">Login</button>
-                            </form>
-                        </div>
+        <div style={{
+            fontFamily: 'Arial, sans-serif',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100vh',
+            margin: '0'
+        }}>
+            <div className="container" style={{
+                background: 'white',
+                padding: '40px',
+                boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
+                borderRadius: '10px',
+                textAlign: 'center',
+                width: '400px',
+                maxWidth: '100%'
+            }}>
+                <h2 style={{
+                    marginBottom: '20px',
+                    fontSize: '28px',
+                    color: '#333'
+                }}>Đăng Nhập</h2>
+                <form onSubmit={handleSubmit}>
+                    <div>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            placeholder="Email" 
+                            value={formData.email} 
+                            onChange={handleChange}
+                            style={{
+                                width: '100%',
+                                padding: '15px',
+                                margin: '10px 0 20px 0',
+                                border: '1px solid #ccc',
+                                borderRadius: '5px',
+                                fontSize: '16px'
+                            }}
+                        />
                     </div>
-                </div>
+                    <div>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            placeholder="Mật Khẩu" 
+                            value={formData.password} 
+                            onChange={handleChange}
+                            style={{
+                                width: '100%',
+                                padding: '15px',
+                                margin: '10px 0 20px 0',
+                                border: '1px solid #ccc',
+                                borderRadius: '5px',
+                                fontSize: '16px'
+                            }}
+                        />
+                    </div>
+                    <button type="submit" style={{
+                        width: '100%',
+                        padding: '15px',
+                        background: '#007bff',
+                        border: 'none',
+                        borderRadius: '5px',
+                        fontSize: '18px',
+                        color: 'white',
+                        cursor: 'pointer'
+                    }}>Đăng Nhập</button>
+                </form>
             </div>
         </div>
-
-    );
-
+    );    
+        
 }
 
 export default App;
